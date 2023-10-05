@@ -40,7 +40,7 @@ const Navbar = () => {
          
           
           }}>Mentors</Box>
-        <Box>Compete</Box>
+        <Box onClick={()=>{navigate('/appoinment')}}>Compete</Box>
         <Box>Jobs</Box>
       </Grid>
       <Flex gap={'40px'} justifyContent={'end'} px={'30px'}>

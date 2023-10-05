@@ -1,32 +1,23 @@
 
 import { Box, Button, Grid, Heading, Input, Select, useToast } from '@chakra-ui/react'
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,useParams} from 'react-router-dom';
 const BookAppoinment = () => {
-  let data={"username":"Neha Jha",
-  "img":"https://media.istockphoto.com/id/1366724990/photo/smiling-computer-science-teacher-using-laptop-during-a-class-and-looking-at-camera.jpg?s=612x612&w=0&k=20&c=zVHFiRTY0aSu3zpDGM3jWV1sXBkPurXfr4GmClgvsiI=",
-  "title":"Biology Professor",
-  "rating":"4.9/5",
-  "location":"Delhi"}
+  const { id } = useParams(); 
+  const [profesor_data,setdata]=useState([]) ;  
 
-const booking=async(cred)=>{
+
+const get_data=async()=>{
   axios
-  .post(`https://motionless-pike-wig.cyclic.app/booking`, cred)
+  .get(`https://enchanting-teal-llama.cyclic.cloud/appoinment/${id}`)
   .then((res) => {
-    toast({
-      title: 'Booking Done',
-      description: "Your Appoingment is Succesfully bookes.",
-      status: 'success',
-      duration:2000,
-      position:"top",
-      isClosable: true,
-    })
+  setdata(res.data)
   })
   .catch((err) => {
       toast({
-          title: 'Booking Failed.',
+          title: 'Data Loading Failed.',
           description: err.message,
           status: 'error',
           duration: 2000,
@@ -35,9 +26,37 @@ const booking=async(cred)=>{
         })
   });
 }
+const booking=async(cred)=>{
+  axios
+  .post(`https://enchanting-teal-llama.cyclic.cloud/booking`,cred)
+  .then((res) => {
+    toast({
+      title: 'Booked Successfully',
+      description: "Your Appoinment is done",
+      status: 'success',
+      position:"top",
+      duration: 2000,
+      isClosable: true,
+    })
+    navigate("/");
+  })
+  .catch((err) => {
+      toast({
+          title: 'Data Loading Failed.',
+          description: err.message,
+          status: 'error',
+          duration: 2000,
+          position:"top",
+          isClosable: true,
+        })
+  });
+  console.log(cred)
+}
+
+useEffect(()=>{get_data()},[])
 const {loading,isAuth}=useSelector((store)=>store.Auth)
-  const [profesor_data,setdata]=useState(data) ;  
-  const [appoinment,setAppinment]=useState({username:"",date:"",time:"",user:profesor_data.email,title:""});
+ 
+  const [appoinment,setAppinment]=useState({username:"",date:"",time:"",user:"demo",title:""});
   const navigate=useNavigate();
   const toast=useToast()
 const on_change=(e)=>{
@@ -73,15 +92,8 @@ if(e.target.name=="date"){
     <option value="4:00-5:00 pm">4:00-5:00 pm</option>
    </Select>
    <Button mt='10px' onClick={()=>{
-  //  navigate("/");
-  toast({
-    title: 'Booked Successfully',
-    description: "Your Appoinment is done",
-    status: 'success',
-    position:"top",
-    duration: 2000,
-    isClosable: true,
-  })
+    booking(appoinment)
+  
 
    }}>Confirm</Button>
    </Box>

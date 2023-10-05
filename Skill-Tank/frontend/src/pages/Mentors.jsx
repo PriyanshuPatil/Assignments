@@ -8,7 +8,7 @@ const toast=useToast()
   const [profesor_data,setdata]=useState([]) ; 
   const getMentor=async(cred)=>{
     axios
-    .get(`https://motionless-pike-wig.cyclic.app/appoinment`)
+    .get(`https://enchanting-teal-llama.cyclic.cloud/appoinment`)
     .then((res) => {
      setdata(res.data)
     })
@@ -40,7 +40,7 @@ const toast=useToast()
    <Box mt='10px'>{el.title}</Box>
    <Box mt='10px'>{el.location}</Box>
    <Box mt='10px'>{el.rating}</Box>
-   <Button mt='10px' onClick={()=>{navigate(`/book-appoinment/${"123"}`)}}>Book Appointment</Button>
+   <Button mt='10px' onClick={()=>{navigate(`/book-appoinment/${el._id}`)}}>Book Appointment</Button>
    </Box>
    </Box>)
      })}
