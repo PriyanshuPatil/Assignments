@@ -4,7 +4,7 @@ import { LOGIN_USERS_ERROR, LOGIN_USERS_LOADING, LOGIN_USERS_SUCCESS, LOGOUT_USE
 export const login = (cred,toast) => (dispatch) => {
   dispatch({ type: LOGIN_USERS_LOADING });
   axios
-    .post(`http://localhost:3500/user/login`, cred)
+    .post(`https://motionless-pike-wig.cyclic.app/user/login`, cred)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       dispatch({ type: LOGIN_USERS_SUCCESS, payload: {token:res.data.token,user_data:cred} });
@@ -40,7 +40,7 @@ export const logout = () => (dispatch) => {
 export const registerUser = (cred,toast) => (dispatch) => {
   dispatch({ type: REGISTER_USERS_LOADING });
   axios
-    .post(`http://localhost:3500/user`, cred)
+    .post(`https://motionless-pike-wig.cyclic.app/user`, cred)
     .then((res) => {
       dispatch({ type: REGISTER_USERS_SUCCESS });
       toast({

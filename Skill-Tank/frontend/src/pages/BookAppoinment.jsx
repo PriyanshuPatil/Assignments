@@ -13,7 +13,7 @@ const BookAppoinment = () => {
 
 const booking=async(cred)=>{
   axios
-  .post(`http://localhost:3500/user`, cred)
+  .post(`https://motionless-pike-wig.cyclic.app/booking`, cred)
   .then((res) => {
     toast({
       title: 'Booking Done',
@@ -82,7 +82,6 @@ if(e.target.name=="date"){
     duration: 2000,
     isClosable: true,
   })
-  //  console.log(appoinment);
 
    }}>Confirm</Button>
    </Box>
@@ -92,4 +91,4 @@ if(e.target.name=="date"){
   )
 }
 
-export default BookAppoinment
+export default BookAppoinment ;

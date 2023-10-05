@@ -8,7 +8,7 @@ const bookingSchema=new mongoose.Schema({
 },{
     versionKey:false
 })
-const bookingModel=mongoose.model("booking",appoinmentSchema);
+const bookingModel=mongoose.model("booking",bookingSchema);
 module.exports={bookingModel}
 
 
