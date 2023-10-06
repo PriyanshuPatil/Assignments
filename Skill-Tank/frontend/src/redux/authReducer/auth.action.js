@@ -23,7 +23,7 @@ export const login = (cred,toast) => (dispatch) => {
       dispatch({ type: LOGIN_USERS_ERROR });
       toast({
         title: 'Login Failed.',
-        description: err.message,
+        description: 'wrong Credentials',
         status: 'error',
         duration: 2000,
         position:"top",
@@ -55,8 +55,8 @@ export const registerUser = (cred,toast) => (dispatch) => {
     .catch((err) => {
         toast({
             title: 'Register Failed.',
-            description: err.message,
-            status: 'error',
+            description:'User Allready Present',
+            status:'error' ,
             duration: 2000,
             position:"top",
             isClosable: true,

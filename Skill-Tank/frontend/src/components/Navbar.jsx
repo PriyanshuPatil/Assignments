@@ -50,7 +50,7 @@ const Navbar = () => {
   <MenuButton _hover={"active"}>Login/Signup</MenuButton>
   <MenuList>
     <MenuItem as='a' onClick={()=>{navigate('/user/authentication')}}>Student Login/Signup</MenuItem>
-    <MenuItem as='a'  >Company Login/Signup</MenuItem>
+    <MenuItem as='a'  onClick={()=>{navigate('/admin/authentication')}}>Company Login/Signup</MenuItem>
   </MenuList>
 </Menu>}
 {isAuth && <Box>{userData.email}</Box>}
