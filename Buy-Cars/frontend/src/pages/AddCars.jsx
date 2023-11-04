@@ -126,7 +126,7 @@ const AddCars = () => {
           <Input onChange={(e) => { onchange_input(e) }} name='registrationplace' placeholder='Registration Place' />
         </Box>
 
-        <Button w='100%' backgroundColor={'gray'} onClick={() => { post_new_car(car_data,toast,navigate) }}>{!loading && "Submit"} {loading && <Spinner />}</Button>
+        <Button w='100%' backgroundColor={'gray'} onClick={() => { post_new_car(car_data,toast,navigate) }}>Submit</Button>
 
       </Box>
     </Box>
@@ -136,7 +136,6 @@ const AddCars = () => {
 export default AddCars ;
 
 const post_new_car=(car_data,toast,navigate)=>{
-  console.log(car_data)
 if(
   car_data.title !=="" &&
   car_data.image !=="" &&
@@ -166,16 +165,6 @@ if(
       })
     })
     navigate("/secind-hand-cars")
-    .catch((err) => {
-      toast({
-        title: 'Error',
-        description: "err.message",
-        status: 'error',
-        position:"top",
-        duration: 2000,
-        isClosable: true,
-      })
-    });
   }else{
     toast({
       title: 'Empty Field',
