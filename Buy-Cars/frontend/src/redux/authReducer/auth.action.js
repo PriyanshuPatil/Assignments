@@ -1,10 +1,10 @@
 import axios from "axios";
-import { LOGIN_USERS_ERROR, LOGIN_USERS_LOADING, LOGIN_USERS_SUCCESS, LOGOUT_USERS_SUCCESS, REGISTER_USERS_ERROR, REGISTER_USERS_LOADING, REGISTER_USERS_SUCCESS } from "./auth.actionType";
+import { LOGIN_USERS_ERROR, LOGIN_USERS_LOADING, LOGIN_USERS_SUCCESS, LOGOUT_USERS_SUCCESS, REGISTER_USERS_ERROR, REGISTER_USERS_LOADING, REGISTER_USERS_SUCCESS } from "./auth.actiontypes";
 
-export const login = (cred,toast) => (dispatch) => {
+export const login = (cred,toast,navigate) => (dispatch) => {
   dispatch({ type: LOGIN_USERS_LOADING });
   axios
-    .post(``, cred)
+    .post(`http://localhost:3600/user/login`, cred)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       dispatch({ type: LOGIN_USERS_SUCCESS, payload: {token:res.data.token,user_data:cred} });
@@ -16,7 +16,7 @@ export const login = (cred,toast) => (dispatch) => {
         position:"top",
         isClosable: true,
       })
-
+      navigate("/secind-hand-cars")
     
     })
     .catch((err) => {
@@ -32,14 +32,15 @@ export const login = (cred,toast) => (dispatch) => {
     });
 };
 
-export const logout = () => (dispatch) => {
+export const logout = (navigate) => (dispatch) => {
   dispatch({ type: LOGOUT_USERS_SUCCESS });
+  navigate("/")
 };
 
-export const registerUser = (cred,toast) => (dispatch) => {
+export const registerUser = (cred,toast,navigate) => (dispatch) => {
   dispatch({ type: REGISTER_USERS_LOADING });
   axios
-    .post(``, cred)
+    .post(`http://localhost:3600/user`, cred)
     .then((res) => {
       dispatch({ type: REGISTER_USERS_SUCCESS });
       toast({
@@ -50,16 +51,18 @@ export const registerUser = (cred,toast) => (dispatch) => {
         position:"top",
         isClosable: true,
       })
+      navigate("/login")
     })
     .catch((err) => {
         toast({
             title: 'Register Failed.',
-            description:'User Allready Present',
+            description:'User Allready Present, Try To Login',
             status:'error' ,
             duration: 2000,
             position:"top",
             isClosable: true,
           })
       dispatch({ type: REGISTER_USERS_ERROR });
+      navigate("/login")
     });
 };

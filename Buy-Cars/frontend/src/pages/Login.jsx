@@ -4,6 +4,7 @@ import { useSelector ,useDispatch} from "react-redux";
 import logo from "../assets/logo.jpg"
 import img2 from "../assets/img2.jpg"
 import { useNavigate } from 'react-router-dom'
+import { login } from '../redux/authReducer/auth.action';
 const Login = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
@@ -26,7 +27,7 @@ const Login = () => {
     <Image  src={logo} w='150px' m={'auto'} />
     <Input onChange={(e)=>{onchange_input(e)}} name='email' placeholder='Enter Your Email Address'  />
     <Input onChange={(e)=>{onchange_input(e)}} name='password' placeholder='Create New Password'/>
-    <Button w='100%' backgroundColor={'gray'} onClick={()=>{console.log(user_data)}}>{!loading && "Login"} {loading && <Spinner/>}</Button>
+    <Button w='100%' backgroundColor={'gray'} onClick={()=>{dispatch(login(user_data,toast,navigate))}}>{!loading && "Login"} {loading && <Spinner/>}</Button>
     <Box textAlign={'center'}>Not Have account? 
    <Box display={'inline'} color='blue.600' textAlign={'center'} onClick={()=>{navigate("/register")}}> Signup Now</Box>     
     </Box>

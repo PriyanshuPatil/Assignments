@@ -5,6 +5,7 @@ import Login from '../pages/Login'
 import Signup from '../pages/Signup'
 import Dealers from '../pages/Dealers'
 import AddCars from '../pages/AddCars'
+import SecondCars from '../pages/SecondCars'
 
 const AllRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AllRoutes = () => {
     <Route path={"/register"} element={<Signup/>} />
     <Route path={"/dealers"} element={<Dealers/>} />
     <Route path={"/addcar"} element={<AddCars/>} />
+    <Route path={"/secind-hand-cars"} element={<SecondCars/>} />
    </Routes>
   )
 }

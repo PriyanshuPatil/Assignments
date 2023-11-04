@@ -4,6 +4,7 @@ import { useSelector ,useDispatch} from "react-redux";
 import logo from "../assets/logo.jpg"
 import img2 from "../assets/img2.jpg"
 import { useNavigate } from 'react-router-dom'
+import { registerUser } from '../redux/authReducer/auth.action';
 const Signup = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
@@ -29,7 +30,7 @@ const Signup = () => {
     <Input onChange={(e)=>{onchange_input(e)}} name='username' placeholder='Enter your Name'/>
     <Input onChange={(e)=>{onchange_input(e)}} name='email' placeholder='Enter your email Id'  />
     <Input onChange={(e)=>{onchange_input(e)}} name='password' placeholder='Create New Password'/>
-    <Button w='100%' backgroundColor={'gray'} onClick={()=>{console.log(user_data)}}>{!loading && "Signup"} {loading && <Spinner/>}</Button>
+    <Button w='100%' backgroundColor={'gray'} onClick={()=>{signup_fun(dispatch,registerUser,user_data,toast,navigate)}}>{!loading && "Signup"} {loading && <Spinner/>}</Button>
     <Box textAlign={'center'}>Already Account? 
    <Box display={'inline'} color='blue.600' textAlign={'center'} onClick={()=>{navigate("/login")}}> Login Now</Box>     
     </Box>
@@ -39,4 +40,20 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signup ;
+
+const signup_fun=(dispatch,registerUser,user_data,toast,navigate)=>{
+  if(user_data.username!= "" && user_data.email!="" && user_data.password!=""){
+dispatch(registerUser(user_data,toast,navigate))
+  }else{
+    toast({
+      title: 'Empty Input.',
+      description:'Please Provide all credentials',
+      status:'error' ,
+      duration: 2000,
+      position:"top",
+      isClosable: true,
+    })
+  }
+  
+}
