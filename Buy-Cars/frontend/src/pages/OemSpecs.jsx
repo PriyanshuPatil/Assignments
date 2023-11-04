@@ -10,6 +10,7 @@ const OemSpecs = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
     const {loading,Data,oem_data}=useSelector((store)=>store.Oem) 
+    const { isAuth } = useSelector((store) => store.Cars)
     const [inputis,setinput]=useState("")
     const [add_oem,setoem]=useState({
       "name":"",
@@ -20,8 +21,7 @@ const OemSpecs = () => {
       "power":"",
       "speed":"" })
     const [isactive,setactive]=useState(false)
-    const toast=useToast() ;
-    const handlechange=(e)=>{
+    const toast=useToast() ;    const handlechange=(e)=>{
   if(e.target.name=="name"){
     setoem({...add_oem,name:toTitleCase(e.target.value)})
   }else if(e.target.name=="year"){
@@ -38,7 +38,18 @@ const OemSpecs = () => {
     setoem({...add_oem,speed:e.target.value})
   }
     }
-    useEffect(()=>{
+    useEffect(()=>{ 
+      // if(!isAuth){
+      //     toast({
+      //       title: 'Please Login First',
+      //       description: "First Login Then You Can Try To Access This Application.",
+      //       status: 'info',
+      //       position:"top",
+      //       duration: 2000,
+      //       isClosable: true,
+      //     })
+      //      navigate("/login")
+      //   }
    dispatch(getOemData());
     },[])
     if(loading){
@@ -117,7 +128,7 @@ export default OemSpecs ;
 const deleteSpecs=(id,dispatch,getOemData,toast)=>{
   console.log(id)
   axios
-  .delete(`http://localhost:3600/oemspecs/${id}`)
+  .delete(`https://enchanting-teal-llama.cyclic.cloud/oemspecs/${id}`)
   .then((res) => {
     toast({
       title: 'Success',
@@ -151,7 +162,7 @@ const addSpecs=(cred,dispatch,getOemData,toast)=>{
   cred.power!=="" &&
   cred.speed!=="" ){
 axios
-  .post(`http://localhost:3600/oemspecs`,cred)
+  .post(`https://enchanting-teal-llama.cyclic.cloud/oemspecs`,cred)
   .then((res) => {
     toast({
       title: 'Success',

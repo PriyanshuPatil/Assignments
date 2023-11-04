@@ -1,5 +1,5 @@
 import { Box, Button, Heading, Image, Input, Spinner, useToast, select, Select } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import logo from "../assets/logo.jpg"
 import img2 from "../assets/img2.jpg"
@@ -61,6 +61,20 @@ const AddCars = () => {
       setCarData({ ...car_data, registrationplace: e.target.value })
     }
   }
+  useEffect(()=>{
+// if(!isAuth){
+//     toast({
+//       title: 'Please Login First',
+//       description: "First Login Then You Can Try To Access This Application.",
+//       status: 'info',
+//       position:"top",
+//       duration: 2000,
+//       isClosable: true,
+//     })
+//     navigate("/login")
+//   }
+  },[])
+  
   return (
     <Box backgroundImage={`url(${img2})`} h='900px' pt='50px'>
       <Box backgroundColor={'white'} borderRadius={'5%'} boxShadow={"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"} w='70%' p='30px' m='auto' mt='3%' display={'grid'} gap='20px'>
@@ -139,7 +153,7 @@ if(
   car_data.previousbuyer !=="" &&
   car_data.registrationplace !==""){
     axios
-    .post(`http://localhost:3600/marketplaceinventory`,car_data)
+    .post(`https://enchanting-teal-llama.cyclic.cloud/marketplaceinventory`,car_data)
     .then(() => {
   console.log(car_data)
       toast({

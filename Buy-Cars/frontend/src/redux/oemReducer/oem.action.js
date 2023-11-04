@@ -4,7 +4,7 @@ import { GET_OEM_ERROR, GET_OEM_LOADING, GET_OEM_SUCCESS, SEARCH_OEM_SUCCESS } f
 export const getOemData = () => (dispatch) => {
   dispatch({ type: GET_OEM_LOADING });
   axios
-    .get(`http://localhost:3600/oemspecs`)
+    .get(`https://enchanting-teal-llama.cyclic.cloud/oemspecs`)
     .then((res) => {
       dispatch({ type: GET_OEM_SUCCESS, payload: res.data });
     })
@@ -16,7 +16,7 @@ export const getOemData = () => (dispatch) => {
 export const searchOemData = (queryy) => (dispatch) => {
   dispatch({ type: GET_OEM_LOADING });
   axios
-    .get(`http://localhost:3600/oemspecs`,{ params:queryy })
+    .get(`https://enchanting-teal-llama.cyclic.cloud/oemspecs`,{ params:queryy })
     .then((res) => {
       dispatch({ type: SEARCH_OEM_SUCCESS, payload: res.data });
     })

@@ -12,7 +12,7 @@ import {
 export const login = (cred, toast, navigate) => (dispatch) => {
   dispatch({ type: LOGIN_USERS_LOADING });
   axios
-    .post(`http://localhost:3600/user/login`, cred)
+    .post(`https://enchanting-teal-llama.cyclic.cloud/user/login`, cred)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       dispatch({
@@ -50,7 +50,7 @@ export const logout = (navigate) => (dispatch) => {
 export const registerUser = (cred, toast, navigate) => (dispatch) => {
   dispatch({ type: REGISTER_USERS_LOADING });
   axios
-    .post(`http://localhost:3600/user`, cred)
+    .post(`https://enchanting-teal-llama.cyclic.cloud/user/register`, cred)
     .then((res) => {
       dispatch({ type: REGISTER_USERS_SUCCESS });
       toast({

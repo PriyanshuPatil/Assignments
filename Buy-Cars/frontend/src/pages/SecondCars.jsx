@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { applyFilter, getCarsData } from '../redux/carsReducer/cars.action'
-import { Box, Button, Heading, Select, Spinner, useToast } from '@chakra-ui/react'
+import { Box, Button, Heading, Input, Select, Spinner, useToast } from '@chakra-ui/react'
 import axios from 'axios'
 
 const SecondCars = () => {
@@ -10,15 +10,30 @@ const SecondCars = () => {
     const dispatch=useDispatch()
     const toast=useToast()
     const {loading,Data,cars_data}=useSelector((store)=>store.Cars) 
-    const {editcar,setedit}=useState({"id":"",active:false,price:""})
-    useEffect(()=>{
+    const { isAuth } = useSelector((store) => store.Cars)
+    const [idis,setid]=useState("")
+    const [active,setactive]=useState(false)
+    const [price,setprice]=useState("")
+    useEffect(()=>{ 
+    //      if(!isAuth){
+    //   toast({
+    //     title: 'Please Login First',
+    //     description: "First Login Then You Can Try To Access This Application.",
+    //     status: 'info',
+    //     position:"top",
+    //     duration: 2000,
+    //     isClosable: true,
+    //   })
+    //   navigate("/login")
+    // }
    dispatch(getCarsData());
     },[])
     if(loading){
         return <Spinner/>
     }
+
   return (
-    <Box mt='0px'>
+    <Box pt='60px'>
       <Box  display={"grid"} w='40%' m="auto" gridTemplateColumns={"repeat(3,1fr)"} gap="30px">
        <Box m='20px 0px'>
         <Select onChange={(e)=>{dispatch(applyFilter(e.target.value,Data))}}>
@@ -56,7 +71,8 @@ const SecondCars = () => {
        <Box p='10px'>
        <Box fontSize={'13px'} fontWeight={'500'} display={"grid"} w="100%" m={"auto"}  mt='20px'gridTemplateColumns={"repeat(2,1fr)"} gap="50px">
         <Heading fontSize={'17px'} ml='20px'  fontWeight={'500'}>{el.year} {el.title}</Heading>
-        <Heading fontSize={'19px'} textAlign={'center'} fontWeight={'600'}>₹ {el.price} Lakhs</Heading>
+        {active && <Heading fontSize={'19px'} textAlign={'center'} fontWeight={'600'}>₹{el._id==idis && active?<Input onChange={(e)=>{setprice(e.target.value)}} w='30%' type={"number"}  fontWeight={'600'} border={'1px solid blue'} p='0px' />:el.price}   Lakhs</Heading>}
+        {!active && <Heading fontSize={'19px'} textAlign={'center'} fontWeight={'600'}>₹{el.price} Lakhs</Heading>}
        </Box>
        
        <Box fontSize={'13px'} fontWeight={'500'} display={"grid"} w="90%" m={"auto"}  mt='20px'gridTemplateColumns={"repeat(4,1fr)"} gap="10px">
@@ -72,7 +88,8 @@ const SecondCars = () => {
        </Box>
        <Box w='40%' m='auto' display={'grid'} gridTemplateColumns={"repeat(2,1fr)"} gap="10px" mt='20px'>
         <Button backgroundColor={'red'} onClick={()=>{deleteCars(el._id,dispatch,getCarsData,toast)}}>Delete</Button>
-        {!editcar.active && <Button backgroundColor={'green'} onClick={()=>{setedit({...editcar,id:el._id,isactive:true,price:el.price})}}>Edit</Button>}
+       {!active && !el._id==idis && <Button backgroundColor={'green'} onClick={()=>{setid(el._id);setactive(true);setprice(el.price)}}>Edit</Button>} 
+       {active && el._id==idis  && <Button backgroundColor={'green'} onClick={()=>{setid("");setactive(false);setprice("");editCars(el._id,price,dispatch,getCarsData,toast)}}>Done</Button>} 
         </Box>
        </Box>
        })}
@@ -87,11 +104,38 @@ export default SecondCars ;
   const deleteCars=(id,dispatch,getCarsData,toast)=>{
     console.log(id)
     axios
-    .delete(`http://localhost:3600/marketplaceinventory/${id}`)
+    .delete(`https://enchanting-teal-llama.cyclic.cloud/marketplaceinventory/${id}`)
     .then((res) => {
       toast({
         title: 'Success',
         description:'Cars Is Deleted',
+        status:'success' ,
+        duration: 2000,
+        position:"top",
+        isClosable: true,
+      })
+      dispatch(getCarsData())
+    })
+    .catch((err) => {
+      toast({
+        title: 'Something Wrong With Api.',
+        description:'Try After Some Time',
+        status:'error' ,
+        duration: 2000,
+        position:"top",
+        isClosable: true,
+      })
+    });
+  }
+
+  const editCars=(id,price,dispatch,getCarsData,toast)=>{
+    console.log(id)
+    axios
+    .patch(`https://enchanting-teal-llama.cyclic.cloud/marketplaceinventory/${id}`,{price})
+    .then((res) => {
+      toast({
+        title: 'Success',
+        description:'Car Data Is Updated',
         status:'success' ,
         duration: 2000,
         position:"top",

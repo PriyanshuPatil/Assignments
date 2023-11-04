@@ -9,7 +9,7 @@ import {
 export const getCarsData = () => (dispatch) => {
   dispatch({ type: GET_CARS_LOADING });
   axios
-    .get(`http://localhost:3600/marketplaceinventory`)
+    .get(`https://enchanting-teal-llama.cyclic.cloud/marketplaceinventory`)
     .then((res) => {
       dispatch({ type: GET_CARS_SUCCESS, payload: res.data });
     })

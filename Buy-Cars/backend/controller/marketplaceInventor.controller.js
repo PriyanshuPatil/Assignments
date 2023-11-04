@@ -46,8 +46,18 @@ const delete_marketplaceInventor = async (req, res) => {
       res.status(400).send({ msg: err.message });
     }
   };
+
+  const update_marketplaceInventor = async (req, res) => {
+    const id = req.params.id;
+    try {
+      const marketplaceInventor_Data = await marketplaceInventorModel.findByIdAndUpdate(id,req.body);
+      res.send({ msg: "Marketplace Inventor Succesfully Updated" });
+    } catch (err) {
+      res.status(400).send({ msg: err.message });
+    }
+  };
   
 
 module.exports = {
- add_marketplaceInventor,get_marketplaceInventor,getSingle_marketplaceInventor,delete_marketplaceInventor
+ add_marketplaceInventor,get_marketplaceInventor,getSingle_marketplaceInventor,delete_marketplaceInventor,update_marketplaceInventor
 };
