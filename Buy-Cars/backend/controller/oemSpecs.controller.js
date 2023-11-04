@@ -1,8 +1,19 @@
 const { oemSpecsModel } = require("../model/oemSpecs.model");
+function toTitleCase(str) {
+  return str.toLowerCase().split(' ').map(word => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }).join(' ');
+}
 
 const get_oemSpecs = async (req, res) => {
+  const { name} = req.query;
+let myquery = {};
+if (name) {
+  myquery.name = toTitleCase(name)
+}
   try {
-    const oemSpecs_Data = await oemSpecsModel.find();
+    const oemSpecs_Data = await oemSpecsModel.find(myquery);
+    console.log(req.query)
     res.send(oemSpecs_Data);
   } catch (err) {
     res.status(400).send({ msg: err.message });

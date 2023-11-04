@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { applyFilter, getCarsData } from '../redux/carsReducer/cars.action'
-import { Box, Button, Heading, Select, Spinner } from '@chakra-ui/react'
+import { Box, Button, Heading, Select, Spinner, useToast } from '@chakra-ui/react'
+import axios from 'axios'
 
 const SecondCars = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
+    const toast=useToast()
     const {loading,Data,cars_data}=useSelector((store)=>store.Cars) 
+    const {editcar,setedit}=useState({"id":"",active:false,price:""})
     useEffect(()=>{
    dispatch(getCarsData());
     },[])
@@ -15,7 +18,7 @@ const SecondCars = () => {
         return <Spinner/>
     }
   return (
-    <Box mt='60px'>
+    <Box mt='0px'>
       <Box  display={"grid"} w='40%' m="auto" gridTemplateColumns={"repeat(3,1fr)"} gap="30px">
        <Box m='20px 0px'>
         <Select onChange={(e)=>{dispatch(applyFilter(e.target.value,Data))}}>
@@ -48,7 +51,7 @@ const SecondCars = () => {
         <Box display={"grid"} w='80%' m="auto" gridTemplateColumns={"repeat(3,1fr)"} gap="20px">
       {cars_data.length==0 && "No data matched with this filter"}
        {cars_data.map((el)=>{
-       return <Box pb='30px' borderRadius={'20px'} boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}>
+       return <Box pb='20px' borderRadius={'20px'} boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}>
        <img style={{borderRadius:'20px'}}  src={el.image}/>
        <Box p='10px'>
        <Box fontSize={'13px'} fontWeight={'500'} display={"grid"} w="100%" m={"auto"}  mt='20px'gridTemplateColumns={"repeat(2,1fr)"} gap="50px">
@@ -67,11 +70,43 @@ const SecondCars = () => {
         <Box borderRadius={"10px"}  p='5px' backgroundColor={"gray.300"} color={"gray.700"} textAlign={'center'}    fontSize={'13px'}>{el.color} Color</Box>
        </Box>
        </Box>
+       <Box w='40%' m='auto' display={'grid'} gridTemplateColumns={"repeat(2,1fr)"} gap="10px" mt='20px'>
+        <Button backgroundColor={'red'} onClick={()=>{deleteCars(el._id,dispatch,getCarsData,toast)}}>Delete</Button>
+        {!editcar.active && <Button backgroundColor={'green'} onClick={()=>{setedit({...editcar,id:el._id,isactive:true,price:el.price})}}>Edit</Button>}
+        </Box>
        </Box>
        })}
         </Box>
+  
     </Box>
   )
 }
 
 export default SecondCars ;
+
+  const deleteCars=(id,dispatch,getCarsData,toast)=>{
+    console.log(id)
+    axios
+    .delete(`http://localhost:3600/marketplaceinventory/${id}`)
+    .then((res) => {
+      toast({
+        title: 'Success',
+        description:'Cars Is Deleted',
+        status:'success' ,
+        duration: 2000,
+        position:"top",
+        isClosable: true,
+      })
+      dispatch(getCarsData())
+    })
+    .catch((err) => {
+      toast({
+        title: 'Something Wrong With Api.',
+        description:'Try After Some Time',
+        status:'error' ,
+        duration: 2000,
+        position:"top",
+        isClosable: true,
+      })
+    });
+  }

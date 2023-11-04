@@ -14,8 +14,9 @@ app.get("/",(req,res)=>{
 res.send("Welcome To buy-cars-Assignment Backend")
 })
 app.use("/user",usersRouter);
-app.use("/oemspecs",oemSpecsRouter);
 app.use("/marketplaceinventory",marketplaceInventorRouter);
+app.use("/oemspecs",oemSpecsRouter);
+
 app.listen(process.env.port,async()=>{
 try{
 await Connection ;

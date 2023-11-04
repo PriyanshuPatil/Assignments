@@ -62,7 +62,7 @@ const AddCars = () => {
     }
   }
   return (
-    <Box backgroundImage={`url(${img2})`} h='900px' pt='30px'>
+    <Box backgroundImage={`url(${img2})`} h='900px' pt='50px'>
       <Box backgroundColor={'white'} borderRadius={'5%'} boxShadow={"rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px"} w='70%' p='30px' m='auto' mt='3%' display={'grid'} gap='20px'>
         <Heading backgroundColor={'gray'} p='20px 10px' borderRadius={'50%'} color='white' w='30%' margin={'auto'} textAlign={'center'} fontSize={'24px'} fontWeight={'500px'}>Add Second Hand Car</Heading>
         <Image src={logo} w='150px' m={'auto'} />

@@ -8,10 +8,12 @@ import {
 import thunk from "redux-thunk";
 import { authReducer } from "./authReducer/auth.reducer";
 import { carsReducer } from "./carsReducer/cars.reducer";
+import { oemReducer } from "./oemReducer/oem.reducer";
   
   const rootReducer = combineReducers({
     Auth: authReducer,
-    Cars:carsReducer
+    Cars:carsReducer,
+    Oem:oemReducer,
   });
   
   const composer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

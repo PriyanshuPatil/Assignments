@@ -4,7 +4,7 @@ const marketplaceInventorRouter = express.Router();
 
 marketplaceInventorRouter.get("/", get_marketplaceInventor);
 marketplaceInventorRouter.post("/",add_marketplaceInventor);
-marketplaceInventorRouter.delete("/",delete_marketplaceInventor);
+marketplaceInventorRouter.delete("/:id",delete_marketplaceInventor);
 marketplaceInventorRouter.get("/:id",getSingle_marketplaceInventor);
 
 

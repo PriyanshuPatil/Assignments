@@ -4,7 +4,7 @@ const oemSpecsRouter = express.Router();
 
 oemSpecsRouter.get("/", get_oemSpecs);
 oemSpecsRouter.post("/",add_oemSpecs);
-oemSpecsRouter.delete("/",delete_oemSpecs);
+oemSpecsRouter.delete("/:id",delete_oemSpecs);
 oemSpecsRouter.get("/:id",getSingle_oemSpecs);
 
 

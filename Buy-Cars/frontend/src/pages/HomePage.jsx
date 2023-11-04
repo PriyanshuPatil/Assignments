@@ -6,7 +6,6 @@ import img2 from "../assets/img2.jpg"
 const HomePage = () => {
   return (
    <>
-   <Navbar/>
    <Image src={img1} h={'720px'} w='100%' />
    </>
   )
