@@ -28,5 +28,6 @@ buycars.com. Buyers can look at the inventory and buy the car from buycars.com.
 - OEM Specs Data Table Page   /oemspecs  
     
 ## Deployed Link
-<a href="https://buycars123.netlify.app/">Buycars Froentend Linkp</a>
+<a href="https://buycars123.netlify.app/">Buycars Froentend Link</a>
+
 <a href="https://enchanting-teal-llama.cyclic.cloud/">Buycars Backend Link</a>
