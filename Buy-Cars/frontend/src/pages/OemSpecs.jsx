@@ -66,9 +66,10 @@ const OemSpecs = () => {
         <Box display={"grid"} w='90%' m="auto" gridTemplateColumns={"repeat(1,1fr)"} >
       {oem_data && oem_data.length==0 && "No data matched with this filter"}
       <Box mt='100px'  boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
-        <Box display={"grid"} gridTemplateColumns={"2fr 1fr"} gap="20px" w="40%" m='auto' p='20px'>
+        <Box display={"grid"} gridTemplateColumns={"2fr 1fr 2fr"} gap="20px" w="40%" m='auto' p='20px'>
          <Input placeholder='Search By Model Name' display={'block'} m='auto' onChange={(e)=>{setinput(e.target.value)}}/>  
          <Button onClick={()=>{dispatch(searchOemData({"name":inputis}))}}>Search</Button>
+         <Button onClick={()=>{setactive(!isactive)}}   display={"block"}  border='1px solid gray' >Add New Car</Button>
         </Box>
      
        <TableContainer >
@@ -96,7 +97,7 @@ const OemSpecs = () => {
         <Td>{el.mileage}</Td>
         <Td >{el.power}</Td>
         <Td >{el.speed}</Td>
-        <Td ><Button  backgroundColor={'red'} onClick={()=>{deleteSpecs(el._id,dispatch,getOemData,toast)}}>Delete</Button></Td>
+        <Td ></Td>
       </Tr>
     })}
       <Button onClick={()=>{setactive(!isactive)}} backgroundColor={"yellow"} display={"block"} m='20px auto'>Add New Oem Specs</Button>
