@@ -8,7 +8,7 @@ import axios from 'axios';
 const AddCars = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { loading, isAuth } = useSelector((store) => store.Cars)
+  const { loading, isAuth } = useSelector((store) => store.Auth)
   const [car_data, setCarData] = useState(
     {
       title: "",
@@ -62,18 +62,18 @@ const AddCars = () => {
     }
   }
   useEffect(()=>{
-// if(!isAuth){
-//     toast({
-//       title: 'Please Login First',
-//       description: "First Login Then You Can Try To Access This Application.",
-//       status: 'info',
-//       position:"top",
-//       duration: 2000,
-//       isClosable: true,
-//     })
-//     navigate("/login")
-//   }
-  },[])
+if(!isAuth){
+    toast({
+      title: 'Please Login First',
+      description: "First Login Then You Can Try To Access This Application.",
+      status: 'info',
+      position:"top",
+      duration: 2000,
+      isClosable: true,
+    })
+    navigate("/login")
+  }
+  },[isAuth])
   
   return (
     <Box backgroundImage={`url(${img2})`} h='900px' pt='50px'>

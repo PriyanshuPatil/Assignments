@@ -6,7 +6,7 @@ import {
   REGISTER_USERS_ERROR,
   REGISTER_USERS_LOADING,
   REGISTER_USERS_SUCCESS,
-} from "./auth.actionTypes";
+} from "./auth.actiontypes";
 
 const initState = {
   token: "",

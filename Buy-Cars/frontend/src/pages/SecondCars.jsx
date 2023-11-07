@@ -10,24 +10,24 @@ const SecondCars = () => {
     const dispatch=useDispatch()
     const toast=useToast()
     const {loading,Data,cars_data}=useSelector((store)=>store.Cars) 
-    const { isAuth } = useSelector((store) => store.Cars)
+    const { isAuth } = useSelector((store) => store.Auth)
     const [idis,setid]=useState("")
     const [active,setactive]=useState(false)
     const [price,setprice]=useState("")
     useEffect(()=>{ 
-    //      if(!isAuth){
-    //   toast({
-    //     title: 'Please Login First',
-    //     description: "First Login Then You Can Try To Access This Application.",
-    //     status: 'info',
-    //     position:"top",
-    //     duration: 2000,
-    //     isClosable: true,
-    //   })
-    //   navigate("/login")
-    // }
+         if(!isAuth){
+      toast({
+        title: 'Please Login First',
+        description: "First Login Then You Can Try To Access This Application.",
+        status: 'info',
+        position:"top",
+        duration: 2000,
+        isClosable: true,
+      })
+      navigate("/login")
+    }
    dispatch(getCarsData());
-    },[])
+    },[isAuth])
     if(loading){
         return <Spinner/>
     }

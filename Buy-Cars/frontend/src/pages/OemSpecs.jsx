@@ -10,7 +10,7 @@ const OemSpecs = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
     const {loading,Data,oem_data}=useSelector((store)=>store.Oem) 
-    const { isAuth } = useSelector((store) => store.Cars)
+    const { isAuth } = useSelector((store) => store.Auth)
     const [inputis,setinput]=useState("")
     const [add_oem,setoem]=useState({
       "name":"",
@@ -39,19 +39,19 @@ const OemSpecs = () => {
   }
     }
     useEffect(()=>{ 
-      // if(!isAuth){
-      //     toast({
-      //       title: 'Please Login First',
-      //       description: "First Login Then You Can Try To Access This Application.",
-      //       status: 'info',
-      //       position:"top",
-      //       duration: 2000,
-      //       isClosable: true,
-      //     })
-      //      navigate("/login")
-      //   }
+      if(!isAuth){
+          toast({
+            title: 'Please Login First',
+            description: "First Login Then You Can Try To Access This Application.",
+            status: 'info',
+            position:"top",
+            duration: 2000,
+            isClosable: true,
+          })
+           navigate("/login")
+        }
    dispatch(getOemData());
-    },[])
+    },[isAuth])
     if(loading){
         return <Spinner/>
     }
@@ -68,7 +68,7 @@ const OemSpecs = () => {
       <Box mt='100px'  boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}>
         <Box display={"grid"} gridTemplateColumns={"2fr 1fr 2fr"} gap="20px" w="40%" m='auto' p='20px'>
          <Input placeholder='Search By Model Name' display={'block'} m='auto' onChange={(e)=>{setinput(e.target.value)}}/>  
-         <Button onClick={()=>{dispatch(searchOemData({"name":inputis}))}}>Search</Button>
+         <Button onClick={()=>{dispatch(searchOemData({"name":inputis}))}}   border='1px solid gray' >Search</Button>
          <Button onClick={()=>{setactive(!isactive)}}   display={"block"}  border='1px solid gray' >Add New Car</Button>
         </Box>
      

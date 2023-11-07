@@ -7,7 +7,7 @@ import {
   REGISTER_USERS_ERROR,
   REGISTER_USERS_LOADING,
   REGISTER_USERS_SUCCESS,
-} from "./auth.actionTypes";
+} from "./auth.actiontypes";
 
 export const login = (cred, toast, navigate) => (dispatch) => {
   dispatch({ type: LOGIN_USERS_LOADING });
