@@ -1,0 +1,7 @@
+.project_parent{
+display: grid;
+grid-template-columns: 3fr 12fr;
+}
+.project_parent>div{
+
+}

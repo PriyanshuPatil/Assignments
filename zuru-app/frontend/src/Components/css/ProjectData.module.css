@@ -14,7 +14,7 @@ margin-top: 20px;
 .project_child>div:nth-child(1){
     display: grid;
     width: 80px ;
-    height: 80px ;
+    height: 75px ;
     color: white;
     font-weight: 700;
     font-size: 30px;

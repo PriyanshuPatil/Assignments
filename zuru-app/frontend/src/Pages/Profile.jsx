@@ -2,7 +2,10 @@ import React from 'react'
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <Box className={style.profile_parent}>
+    <Box><SideMenu/></Box>
+    <Box>hello</Box>
+    </Box>
   )
 }
 
