@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import style from './css/SideMenu.module.css'
 import { Box } from '@chakra-ui/react'
 import { IoSettingsOutline } from "react-icons/io5";
-const SideMenu = () => {
-  const [active_number,set_active_number]=useState(1)
+const SideMenu = ({select_option=0}) => {
+  const [active_number,set_active_number]=useState(select_option)
   return (
     <Box className={style.sidemenu_parent}>
    <Box className={style.sidemenu_logo} >

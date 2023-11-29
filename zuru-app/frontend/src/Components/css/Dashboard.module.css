@@ -1,0 +1,27 @@
+.dashboard_parent{
+    display: grid;
+    width: 90%;padding: 10px;
+    margin: auto; margin-top: 30px;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;gap:0px
+}
+.dashboard_heading{
+    display: flex;
+    width: 500px;
+    color: rgb(79, 79, 221);
+    gap:10px;
+    font-size: 19px;
+    font-weight: 500;
+}
+.dashboard_icon{
+    display: grid;
+    width: 40%;
+    grid-template-columns: repeat(4,1fr);
+    gap:5px 5px 5px 5px;
+    margin-left: 15%;
+    font-weight: 600;
+    text-align: center;
+}
+.dashboard_icon>img{
+   width: 30px;
+}
