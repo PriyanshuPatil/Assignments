@@ -1,0 +1,69 @@
+.nav_parent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+.nav_logo_div {
+  margin-left: 30px;
+  width: 150px;
+}
+.nav_icon_div {
+  display: flex;
+  width: 10%;
+  gap: 20px;
+  margin-top: 10px;
+}
+.heading{
+color: rgb(118, 55, 178); 
+text-align: center;
+margin-top: 3%;
+}
+.metting_image{
+width: 30%;
+margin: auto;
+margin-top:20px ;
+}
+.metting_image>img{
+  width: 100%;
+  }
+.metting_text{
+    width: 54%;
+    font-size: 17px;
+    text-align: center;
+    color: rgb(50, 49, 49);
+    margin: auto;
+}
+.project_button{
+  display: flex;
+  border-radius: 3px;
+  font-size: 20px;
+  color: white;
+  width: 18%;
+  margin: auto;
+  text-align: center;
+  margin-top:20px
+}
+.project_button>button>{
+ font-size: 20px;
+}
+.project_button>button>div{
+  margin-right: 10px;
+}
+.project_parent{
+width: 70%;
+margin: auto;
+}
+.project_heading_parent{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+.project_heading{
+ color: rgb(141, 53, 223); 
+text-align: center;
+font-size: 10px;
+}
+.project_heading_button>button{
+gap:10px
+}
