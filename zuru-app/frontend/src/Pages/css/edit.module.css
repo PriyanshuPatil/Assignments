@@ -1,0 +1,51 @@
+.edit_parent {
+  display: grid;
+  grid-template-columns: 3fr 12fr;
+}
+.edit_heading {
+  color: rgb(79, 79, 221);
+  font-size: 26px;
+  font-weight: 700;
+  padding: 3% 6%;
+}
+.edit_box {
+  width: 90%;
+  margin: auto;
+  height: 420px;
+  border: 1px solid rgb(63, 6, 116);
+  border-radius: 20px;
+}
+.edit_mode {
+  display: flex;
+  gap: 5px;
+  background-color: black;
+  color: white;
+  width: 140px;
+  border-radius: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px 15px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.edit_heading {
+  display: flex;
+  justify-content: space-between;
+}
+.edit_button {
+  display: flex;
+  gap: 10px;
+}
+.edit_button > button:nth-child(1) {
+  background-color: white;
+  border:2px solid red;
+  color: red;
+}
+.edit_button > button:nth-child(2) {
+    background-color: black;
+    color: white;
+}
+.edit_textarea{
+    height: 420px;
+}

@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import style from './css/SideMenu.module.css'
 import { Box } from '@chakra-ui/react'
 import { IoSettingsOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 const SideMenu = ({select_option=0}) => {
-  const [active_number,set_active_number]=useState(select_option)
+  const [active_number,set_active_number]=useState(select_option);
+  const navigate=useNavigate()
   return (
     <Box className={style.sidemenu_parent}>
    <Box className={style.sidemenu_logo} >
@@ -35,7 +37,7 @@ const SideMenu = ({select_option=0}) => {
      
      <Box>
       <Box className={active_number==5?style.sidemenu_listitem4:style.sidemenu_listitem5} onClick={()=>{set_active_number(5)}}>
-      <Box className={active_number==5?style.sidemenu_counting4:style.sidemenu_counting5}><Box><IoSettingsOutline size='20' width={"40px"} height={'10px'} color='white' />
+      <Box onClick={()=>{navigate("/setting")}} className={active_number==5?style.sidemenu_counting4:style.sidemenu_counting5}><Box><IoSettingsOutline size='20' width={"40px"} height={'10px'} color='white' />
       </Box>Settings
       </Box></Box>
      </Box>

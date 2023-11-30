@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './css/profile.module.css'
 import SideMenu from '../Components/SideMenu'
 import { Box, Button, Heading, Input, Text } from '@chakra-ui/react'
 import DashBoard from '../Components/DashBoard'
+import { useSelector } from 'react-redux'
 const Profile = () => {
+  const {loading,userData}=useSelector((store)=>store.Auth);
+  const [userdata,setUserData]=useState({name:userData.name,email:userData.email})
   return (
     <Box className={style.profile_parent}>
       <Box><SideMenu select_option={5} /></Box>
@@ -18,12 +21,12 @@ const Profile = () => {
               <Input fontSize={'16px'} h={'50px'}
                 placeholder='Enter Name'
                 size='sm'
-              /></Box>
+                value={userdata.name} onChange={(e)=>{setUserData({...userdata,name:e.target.value})}} /></Box>
             <Box> <Text mb='8px'>Email: </Text>
               <Input  fontSize={'16px'} h={'50px'}
                 placeholder='Enter Email'
                 size='sm'
-              /></Box>
+             value={userdata.email}  onChange={(e)=>{setUserData({...userdata,email:e.target.value})}} /></Box>
           </Box>
           <Box className={style.profile_heading2}>Subscriptions</Box>
           <Box className={style.profile_heading2_content}>You are currently on the Ques<label className={style.profile_heading2_label}> AI Basic Plan!</label> <Button ml="400px">Upgrade</Button></Box>

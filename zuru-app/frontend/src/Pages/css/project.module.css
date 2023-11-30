@@ -39,3 +39,28 @@ margin-top: 10px;
     margin: auto;
     margin-top: -3%;
 }
+.upload_from_youtube{
+display: flex;
+gap:10px
+}
+.upload_from_youtube>img{
+border-radius: 100%;   
+width: 40px;
+}
+
+.project_heading2_content{
+    width: 90%;
+    margin: auto;
+    background-color: rgb(53, 53, 131); 
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 19px;
+    margin-top: 13px;
+ 
+ }
+ .project_heading2_label{
+     font-weight: 400;
+     margin-left: 10px;
+     
+ }
