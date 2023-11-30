@@ -45,12 +45,14 @@ const addPodcast = async (req, res) => {
 
 const updatePodcast = async (req, res) => {
   const id = req.params.id;
+  const text = req.query.text;
+  console.log(text)
   try {
     const Podcast_Data = await podcastModel.findById(id);
     if(Podcast_Data.length==0){
       res.status(400).send({ msg: "No Data Present"});
     }else{
-      const Podcast_Data = await podcastModel.findByIdAndUpdate(id,{link:req.body.link});
+      const Podcast_Data = await podcastModel.findByIdAndUpdate(id,{link:text});
       await Podcast_Data.save();
        res.status(201).send({ msg: "Podcast Succesfully Updated" }) ;
     }

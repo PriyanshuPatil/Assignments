@@ -1,4 +1,4 @@
-import { Button, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
+import { Button, Table, TableContainer, Tbody, Td, Th, Thead, Tr, useToast } from '@chakra-ui/react'
 import React from 'react'
 import style from './css/TableData.module.css'
 import { useNavigate } from 'react-router-dom'
@@ -6,7 +6,8 @@ import { useDispatch } from 'react-redux'
 import { Delete_sub_project_axios } from '../Redux/subProjectReducer/subProjectReducer.action'
 const TableData = ({ Data }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const toast=useToast()
   return (
     <>
       <TableContainer className={style.table}>
@@ -25,7 +26,7 @@ const TableData = ({ Data }) => {
                 <Td>{el.name}</Td>
                 <Td>{el.date}</Td>
                 <Td>Done</Td>
-                <Td className={style.table_button}><Button onClick={() => { navigate(`/editpage/${el._id}`) }}>Edit</Button><Button onClick={() => { dispatch(Delete_sub_project_axios(el._id, el.project_id)) }}>Delete</Button></Td>
+                <Td className={style.table_button}><Button onClick={() => { navigate(`/editpage/${el._id}`) }}>Edit</Button><Button onClick={() => { dispatch(Delete_sub_project_axios(el._id, el.project_id,toast)) }}>Delete</Button></Td>
               </Tr>
             })}
 

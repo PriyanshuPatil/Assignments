@@ -63,7 +63,6 @@ export const Update_project_axios = (id, data) => async (dispatch) => {
 
 export const Get_project_axios = (data) => async (dispatch) => {
   dispatch({ type: GET_PROJECT_LOADING });
-  console.log(data.email);
   await axios
     .get(`http://localhost:3400/project?email=${data.email}`)
     .then((res) => {

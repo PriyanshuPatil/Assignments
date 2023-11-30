@@ -1,6 +1,6 @@
 .config_parent {
   display: grid;
-  grid-template-columns: 3fr 12fr;
+  grid-template-columns: 4fr 12fr;
 }
 .config_heading_parent {
   padding: 2% 6%;

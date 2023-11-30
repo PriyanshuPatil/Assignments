@@ -1,6 +1,6 @@
 .edit_parent {
   display: grid;
-  grid-template-columns: 3fr 12fr;
+  grid-template-columns: 4fr 12fr;
 }
 .edit_heading {
   color: rgb(79, 79, 221);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SideMenu from "../Components/SideMenu";
-import { Box, Button, Input, Textarea } from "@chakra-ui/react";
+import { Box, Button, Input, Textarea, useToast } from "@chakra-ui/react";
 import style from "./css/edit.module.css";
 import DashBoard from "../Components/DashBoard";
 import { BiSolidPencil } from "react-icons/bi";
@@ -14,6 +14,7 @@ import axios from "axios";
 const Edit = () => {
   const [editActive, setEditActive] = useState(false);
   const { id } = useParams();
+  const toast=useToast()
   const dispatch = useDispatch();
   const { subProjectData, single } = useSelector((store) => store.SubProject);
   const [edittext, setEdittext] = useState(single);
@@ -49,7 +50,7 @@ const Edit = () => {
               <Button
                 onClick={() => {
                   setEditActive(!editActive);
-                  dispatch(Update_sub_project_axios(id, edittext));
+                  dispatch(Update_sub_project_axios(id, edittext,toast));
                 }}
               >
                 Save & edit

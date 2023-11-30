@@ -8,6 +8,7 @@
   justify-content: space-between;
   gap: 0px;
 }
+
 .dashboard_heading {
   display: flex;
   width: 500px;
@@ -26,5 +27,13 @@
   text-align: center;
 }
 .dashboard_icon > img {
-  width: 30px;
+  width: 27px;
+  height: 25px;
+  border-radius: 100%;
 }
+.dashboard_parent>div:nth-child(2) {
+    display: flex;
+    gap:10px ;
+    margin-left: 70%;
+    align-items: end;
+  }

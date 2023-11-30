@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SideMenu from '../Components/SideMenu'
 import style from './css/project.module.css'
-import { Box, Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react'
 import DashBoard from '../Components/DashBoard'
 import TableData from '../Components/TableData'
 import { useParams } from 'react-router-dom'
@@ -17,7 +17,8 @@ const Projects = () => {
   const [idIs, setId] = useState(1)
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [single_project_data, setSingleProjectData] = useState([])
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const toast=useToast()
   useEffect(() => {
     let project_data_with_id = projectData.filter((el) => {
       if (el._id == id) { return el }
@@ -25,12 +26,11 @@ const Projects = () => {
     setSingleProjectData(project_data_with_id);
     dispatch(Get_sub_project_axios(id))
   }, [])
-
   return (
     <Box className={style.project_parent}>
       <Box><SideMenu select_option={1} /></Box>
       <Box>
-        <DashBoard Heading={'Sample Project'} SubHeading="Upload" />
+        <DashBoard Heading={single_project_data.length==0?"":single_project_data[0].name} SubHeading="Upload" />
         <Box className={style.project_heading_parent}>
           <Box className={style.project_heading}>Upload</Box>
           <Box className={style.upload_type_parent}>
@@ -105,7 +105,7 @@ const Projects = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button onClick={() => { setActive(false); dispatch(Add_sub_project_axios({ name: Data.name, link: Data.link, project_id: Data.project_id })) }} backgroundColor={'black'} color={'white'}>Upload</Button>
+              <Button onClick={() => { setActive(false); dispatch(Add_sub_project_axios({ name: Data.name, link: Data.link, project_id: Data.project_id },Data.project_id,toast)) }} backgroundColor={'black'} color={'white'}>Upload</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>}
