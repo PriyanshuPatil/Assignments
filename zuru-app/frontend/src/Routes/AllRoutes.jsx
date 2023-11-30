@@ -9,11 +9,11 @@ import Profile from '../Pages/Profile'
 const AllRoutes = () => {
   return (
     <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/project/:id' element={<Projects/>}/>
-        <Route path='/editpage/:id' element={<Edit/>}/>
-        <Route path='/configur' element={<Configur/>}/>
-        <Route path='/setting' element={<Profile/>}/>
+      <Route path='/' element={<Home />} />
+      <Route path='/project/:id' element={<Projects />} />
+      <Route path='/editpage/:id' element={<Edit />} />
+      <Route path='/configur' element={<Configur />} />
+      <Route path='/setting' element={<Profile />} />
     </Routes>
   )
 }

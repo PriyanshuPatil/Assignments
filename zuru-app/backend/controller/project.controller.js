@@ -1,9 +1,18 @@
 const { projectModel } = require("../model/project.model");
 
 const getProject = async (req, res) => {
+  const email = req.query.email;
+  console.log(email)
   try {
-    const project_Data = await projectModel.find();
+    if(email){
+      const project_Data = await projectModel.find({email:email});
+      console.log(project_Data)
     res.send(project_Data);
+    }else{
+      const project_Data = await projectModel.find();
+      console.log(project_Data)
+      res.send(project_Data);
+    }
   } catch (err) {
     res.status(400).send({ msg: err.message });
   }

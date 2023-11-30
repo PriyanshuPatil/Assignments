@@ -1,14 +1,14 @@
-.table_parent{
-    margin-top: 20px;
-    border-radius: 10px;
+.table_parent {
+  margin-top: 20px;
+  border-radius: 10px;
 }
-.table{
-    width: 90%;
-    margin: auto; 
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: 20px;
+.table {
+  width: 90%;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 20px;
 }
-.table_button{
-    display: flex;
-    gap:10px
+.table_button {
+  display: flex;
+  gap: 10px;
 }

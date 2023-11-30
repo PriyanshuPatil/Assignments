@@ -1,0 +1,65 @@
+.config_parent {
+  display: grid;
+  grid-template-columns: 3fr 12fr;
+}
+.config_heading_parent {
+  padding: 2% 6%;
+}
+.config_heading {
+  color: rgb(79, 79, 221);
+  font-size: 26px;
+  font-weight: 700;
+}
+.general_parent2 {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 30px;
+  margin-top: 20px;
+}
+.general_parent2 > div > label {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(58, 52, 52);
+  margin-top: 0px;
+}
+.general_parent2 > div > input {
+  outline: 1px solid rgb(106, 102, 102);
+  margin-top: 0px;
+  border: none;
+  margin-top: 10px;
+}
+.general_parent2 > div > p {
+  font-size: 11px;
+  margin-top: 0px;
+  color: gray;
+}
+
+.general_parent {
+  width: 90%;
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+.general_parent > label {
+  font-weight: 500;
+  font-size: 14px;
+  color: rgb(58, 52, 52);
+  margin-top: 0px;
+}
+.general_parent > input {
+  outline: 1px solid rgb(106, 102, 102);
+  border: none;
+  margin-top: 0px;
+}
+.general_parent > p {
+  font-size: 11px;
+  margin-top: -10px;
+  color: gray;
+}
+.config_heading1 {
+  color: rgb(79, 79, 221);
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+}

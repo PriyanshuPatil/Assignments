@@ -13,12 +13,13 @@ const projectSchema=new mongoose.Schema({
     last_edit:{type:String,require:false,default:`${year}-${month}-${day}`},
     chatbot_name:{type:String,require:false},
     welcome_message:{type:String,require:false},
+    email:{type:String,require:false,default:"xyz"},
     input_placeholder:{type:String,require:false},
     image_url:{type:String,require:false,default:""}
 },{
     versionKey:false
 })
-const projectModel=mongoose.model("project",projectSchema);
+const projectModel=mongoose.model("project_data",projectSchema);
 module.exports={projectModel}
 
 

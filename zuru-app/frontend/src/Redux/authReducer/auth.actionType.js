@@ -6,5 +6,4 @@ export const REGISTER_USERS_LOADING = "REGISTER/user/loading";
 export const REGISTER_USERS_ERROR = "REGISTER/user/error";
 export const REGISTER_USERS_SUCCESS = "REGISTER/user/success";
 
-export const LOGOUT_USERS_SUCCESS = "REGISTER/user/success";
-
+export const LOGOUT_USERS_SUCCESS = "logout/user/success";

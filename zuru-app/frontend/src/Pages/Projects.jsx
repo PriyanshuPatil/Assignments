@@ -9,26 +9,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Add_sub_project_axios, Get_sub_project_axios } from '../Redux/subProjectReducer/subProjectReducer.action'
 const Projects = () => {
   const [isactive, setActive] = useState(false)
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [Project_Data, setProjectData] = useState([])
-  const {loading,projectData}=useSelector((store)=>store.Project)
-  const {subProjectData}=useSelector((store)=>store.SubProject)
-  const [Data, setData] = useState({ name:"Sample Project",link:"",project_id:id})
+  const { loading, projectData } = useSelector((store) => store.Project)
+  const { subProjectData } = useSelector((store) => store.SubProject)
+  const [Data, setData] = useState({ name: "Sample Project", link: "", project_id: id })
   const [idIs, setId] = useState(1)
-  const { isOpen, onOpen, onClose } = useDisclosure() ;
-  const [single_project_data,setSingleProjectData]=useState([])
-  const dispatch=useDispatch()
-  useEffect(()=>{
-    let project_data_with_id=projectData.filter((el)=>{
- if(el._id==id){return el}
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [single_project_data, setSingleProjectData] = useState([])
+  const dispatch = useDispatch()
+  useEffect(() => {
+    let project_data_with_id = projectData.filter((el) => {
+      if (el._id == id) { return el }
     })
-    setSingleProjectData(project_data_with_id) ;
+    setSingleProjectData(project_data_with_id);
     dispatch(Get_sub_project_axios(id))
-    },[])
+  }, [])
 
   return (
     <Box className={style.project_parent}>
-      <Box><SideMenu select_option={1}/></Box>
+      <Box><SideMenu select_option={1} /></Box>
       <Box>
         <DashBoard Heading={'Sample Project'} SubHeading="Upload" />
         <Box className={style.project_heading_parent}>
@@ -67,13 +67,13 @@ const Projects = () => {
           {subProjectData.length == 0 && <Box textAlign={'center'} mt='15px' fontSize={'20px'} color={'gray'}>or</Box>}
         </Box>
         {subProjectData.length != 0 && <Box className={style.project_heading2_content}>All files are processed! Your widget is ready to go!<Button ml="400px">Try it out!</Button></Box>}
-        {subProjectData.length != 0 && 
-<TableData Data={subProjectData} />
-}
+        {subProjectData.length != 0 &&
+          <TableData Data={subProjectData} />
+        }
 
         {subProjectData.length == 0 && <Box onClick={() => { setActive(true); setId(1) }}><img className={style.upload_image} src='https://i.postimg.cc/MK0T0QJ6/logois5.png' /></Box>
         }</Box>
-        
+
 
 
 
@@ -105,7 +105,7 @@ const Projects = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button onClick={() => { setActive(false); dispatch(Add_sub_project_axios({name:Data.name,link:Data.link,project_id:Data.project_id}))}} backgroundColor={'black'} color={'white'}>Upload</Button>
+              <Button onClick={() => { setActive(false); dispatch(Add_sub_project_axios({ name: Data.name, link: Data.link, project_id: Data.project_id })) }} backgroundColor={'black'} color={'white'}>Upload</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>}

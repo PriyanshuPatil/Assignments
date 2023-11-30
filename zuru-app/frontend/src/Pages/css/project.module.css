@@ -1,66 +1,65 @@
-.project_parent{
-display: grid;
-grid-template-columns: 3fr 12fr;
+.project_parent {
+  display: grid;
+  grid-template-columns: 3fr 12fr;
 }
-.project_heading_parent{
-    padding: 2% 6% 3% 6%;
+.project_heading_parent {
+  padding: 2% 6% 3% 6%;
 }
-.project_heading{
-    color: rgb(79, 79, 221);
-    font-size: 26px;
-    font-weight: 700;
+.project_heading {
+  color: rgb(79, 79, 221);
+  font-size: 26px;
+  font-weight: 700;
 }
-.upload_type_parent{
-display: grid;
-grid-template-columns: repeat(3,1fr);
-gap:40px;
-margin-top: 20px;
+.upload_type_parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 20px;
 }
-.upload_type_child{
-    display: grid;
-grid-template-columns: repeat(2,1fr);
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    border-radius: 10px;
-    padding: 10px;
+.upload_type_child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 10px;
+  padding: 10px;
 }
-.upload_type_image>img{
-width:75px;
-border-radius:100%;
+.upload_type_image > img {
+  width: 75px;
+  border-radius: 100%;
 }
-.upload_type_text{
-font-weight: 600;
-width: 80%;
-margin-left: -10px;
-text-align: left;
-margin-top: 10px;
+.upload_type_text {
+  font-weight: 600;
+  width: 80%;
+  margin-left: -10px;
+  text-align: left;
+  margin-top: 10px;
 }
-.upload_image{
-    width: 70%;
-    margin: auto;
-    margin-top: -3%;
+.upload_image {
+  width: 70%;
+  margin: auto;
+  margin-top: -3%;
 }
-.upload_from_youtube{
-display: flex;
-gap:10px
+.upload_from_youtube {
+  display: flex;
+  gap: 10px;
 }
-.upload_from_youtube>img{
-border-radius: 100%;   
-width: 40px;
+.upload_from_youtube > img {
+  border-radius: 100%;
+  width: 40px;
 }
 
-.project_heading2_content{
-    width: 90%;
-    margin: auto;
-    background-color: rgb(53, 53, 131); 
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 19px;
-    margin-top: 13px;
- 
- }
- .project_heading2_label{
-     font-weight: 400;
-     margin-left: 10px;
-     
- }
+.project_heading2_content {
+  width: 90%;
+  margin: auto;
+  background-color: rgb(53, 53, 131);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 19px;
+  margin-top: 13px;
+}
+.project_heading2_label {
+  font-weight: 400;
+  margin-left: 10px;
+}
