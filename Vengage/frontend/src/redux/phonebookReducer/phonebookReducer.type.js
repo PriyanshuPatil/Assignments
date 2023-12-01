@@ -17,8 +17,3 @@ export const POST_CONTACT_SUCCESS = "post/contact/success";
 export const GET_SINGLE_CONTACT_LOADING = "get/single/contact/loading";
 export const GET_SINGLE_CONTACT_ERROR = "get/single/contact/error";
 export const GET_SINGLE_CONTACT_SUCCESS = "get/single/contact/success";
-
-
-
-
-

@@ -16,12 +16,12 @@
   color: rgb(65, 65, 27);
 }
 
-.home_parent >button{
- color: white;
- background-color: black;
+.home_parent > button {
+  color: white;
+  background-color: black;
 }
 
-.home_parent >button:hover{
-    color: white;
-    background-color: rgb(68, 62, 62);
- }
+.home_parent > button:hover {
+  color: white;
+  background-color: rgb(68, 62, 62);
+}

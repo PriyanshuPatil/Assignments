@@ -7,9 +7,9 @@ import Calender from '../pages/Calender'
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route  path='/' element={<HomePage/>}/>
-      <Route  path='/phonebook' element={<PhoneBook/>}/>
-      <Route  path='/calender' element={<Calender/>}/>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/phonebook' element={<PhoneBook />} />
+      <Route path='/calender' element={<Calender />} />
     </Routes>
   )
 }
