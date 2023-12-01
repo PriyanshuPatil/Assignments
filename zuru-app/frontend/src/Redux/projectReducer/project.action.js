@@ -18,7 +18,10 @@ import {
 export const Add_project_axios = (data, name, toast) => async (dispatch) => {
   dispatch({ type: POST_PROJECT_LOADING });
   try {
-    await axios.post(`http://localhost:3400/project`, data);
+    await axios.post(
+      `https://enchanting-teal-llama.cyclic.cloud/project`,
+      data
+    );
     dispatch({
       type: POST_PROJECT_SUCCESS,
       payload: { ...data, last_edit: "2023-11-31", _id: "1234" },
@@ -44,7 +47,9 @@ export const Add_project_axios = (data, name, toast) => async (dispatch) => {
 export const Delete_project_axios = (id) => async (dispatch) => {
   dispatch({ type: DELETE_PROJECT_LOADING });
   try {
-    await axios.delete(`http://localhost:3400/project/${id}`);
+    await axios.delete(
+      `https://enchanting-teal-llama.cyclic.cloud/project/${id}`
+    );
     dispatch({ type: DELETE_PROJECT_SUCCESS, payload: id });
   } catch {
     dispatch({ type: DELETE_PROJECT_ERROR });
@@ -54,7 +59,10 @@ export const Delete_project_axios = (id) => async (dispatch) => {
 export const Update_project_axios = (id, data) => async (dispatch) => {
   dispatch({ type: UPDATE_PROJECT_LOADING });
   try {
-    await axios.patch(`http://localhost:3400/project/${id}`, data);
+    await axios.patch(
+      `https://enchanting-teal-llama.cyclic.cloud/project/${id}`,
+      data
+    );
     dispatch({ type: UPDATE_PROJECT_SUCCESS });
   } catch {
     dispatch({ type: UPDATE_PROJECT_ERROR });
@@ -64,7 +72,9 @@ export const Update_project_axios = (id, data) => async (dispatch) => {
 export const Get_project_axios = (data) => async (dispatch) => {
   dispatch({ type: GET_PROJECT_LOADING });
   await axios
-    .get(`http://localhost:3400/project?email=${data.email}`)
+    .get(
+      `https://enchanting-teal-llama.cyclic.cloud/project?email=${data.email}`
+    )
     .then((res) => {
       dispatch({ type: GET_PROJECT_SUCCESS, payload: res.data });
     })

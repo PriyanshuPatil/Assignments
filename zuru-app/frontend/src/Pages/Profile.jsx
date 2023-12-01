@@ -10,8 +10,8 @@ const Profile = () => {
     name: userData.name || "xyz",
     email: userData.email || "xyz@gmail.com",
   });
-  if(loading){
-    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'}/></Box>
+  if (loading) {
+    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'} /></Box>
   }
   return (
     <Box className={style.profile_parent}>

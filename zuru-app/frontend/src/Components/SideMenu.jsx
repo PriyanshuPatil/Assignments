@@ -7,7 +7,7 @@ const SideMenu = ({ select_option = 0 }) => {
    const [active_number, set_active_number] = useState(select_option);
    const navigate = useNavigate();
    const { id } = useParams();
-   const toast=useToast()
+   const toast = useToast()
    return (
       <Box className={style.sidemenu_parent}>
          <Box className={style.sidemenu_logo} >
@@ -18,34 +18,38 @@ const SideMenu = ({ select_option = 0 }) => {
                Podcast Upload Flow
             </Box>
             <Box className={style.sidemenu_list}>
-               <Box className={active_number != 1 ? style.sidemenu_listitem : style.sidemenu_listitem2} onClick={() => { set_active_number(1);navigate("/") }}>
+               <Box className={active_number != 1 ? style.sidemenu_listitem : style.sidemenu_listitem2} onClick={() => { set_active_number(1); navigate("/") }}>
                   <Box className={active_number != 1 ? style.sidemenu_counting : style.sidemenu_counting2}>1</Box>
                   Projects
                </Box>
-               <Box className={active_number != 2 ? style.sidemenu_listitem : style.sidemenu_listitem2} onClick={() => { set_active_number(2);navigate(`/configur/${id}`) }}>
+               <Box className={active_number != 2 ? style.sidemenu_listitem : style.sidemenu_listitem2} onClick={() => { set_active_number(2); navigate(`/configur/${id}`) }}>
                   <Box className={active_number != 2 ? style.sidemenu_counting : style.sidemenu_counting2}>2</Box>
                   Widget Configurations
                </Box>
-               <Box className={active_number != 3 ? style.sidemenu_listitem : style.sidemenu_listitem1} onClick={() => { set_active_number(3); 
-               toast({
-                  title: "Not Lounched Yet",
-                  description: "We are Working On It",
-                  status: "info",
-                  duration: 2000,
-                  position: "top",
-                  isClosable: true,
-                }); }}>
+               <Box className={active_number != 3 ? style.sidemenu_listitem : style.sidemenu_listitem1} onClick={() => {
+                  set_active_number(3);
+                  toast({
+                     title: "Not Lounched Yet",
+                     description: "We are Working On It",
+                     status: "info",
+                     duration: 2000,
+                     position: "top",
+                     isClosable: true,
+                  });
+               }}>
                   <Box className={active_number != 3 ? style.sidemenu_counting : style.sidemenu_counting1}>3</Box>
                   Deployment
                </Box>
-               <Box className={active_number != 4 ? style.sidemenu_listitem : style.sidemenu_listitem1} onClick={() => { set_active_number(4);toast({
-        title: "Not Lounched Yet",
-        description: "We are Working On It",
-        status: "info",
-        duration: 2000,
-        position: "top",
-        isClosable: true,
-      }); }}>
+               <Box className={active_number != 4 ? style.sidemenu_listitem : style.sidemenu_listitem1} onClick={() => {
+                  set_active_number(4); toast({
+                     title: "Not Lounched Yet",
+                     description: "We are Working On It",
+                     status: "info",
+                     duration: 2000,
+                     position: "top",
+                     isClosable: true,
+                  });
+               }}>
                   <Box className={active_number != 4 ? style.sidemenu_counting : style.sidemenu_counting1}>4</Box>
                   Pricing
                </Box>

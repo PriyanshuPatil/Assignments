@@ -31,9 +31,9 @@
   height: 25px;
   border-radius: 100%;
 }
-.dashboard_parent>div:nth-child(2) {
-    display: flex;
-    gap:10px ;
-    margin-left: 70%;
-    align-items: end;
-  }
+.dashboard_parent > div:nth-child(2) {
+  display: flex;
+  gap: 10px;
+  margin-left: 70%;
+  align-items: end;
+}

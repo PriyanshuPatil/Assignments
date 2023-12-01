@@ -48,8 +48,8 @@ const Home = () => {
   });
   const { loading, projectData } = useSelector((store) => store.Project);
   const dispatch = useDispatch();
-  if(loading){
-    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'}/></Box>
+  if (loading) {
+    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'} /></Box>
   }
   return (
     <>

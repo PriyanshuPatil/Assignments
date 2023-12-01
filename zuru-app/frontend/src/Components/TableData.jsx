@@ -7,7 +7,7 @@ import { Delete_sub_project_axios } from '../Redux/subProjectReducer/subProjectR
 const TableData = ({ Data }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const toast=useToast()
+  const toast = useToast()
   return (
     <>
       <TableContainer className={style.table}>
@@ -26,7 +26,7 @@ const TableData = ({ Data }) => {
                 <Td>{el.name}</Td>
                 <Td>{el.date}</Td>
                 <Td>Done</Td>
-                <Td className={style.table_button}><Button onClick={() => { navigate(`/editpage/${el._id}`) }}>Edit</Button><Button onClick={() => { dispatch(Delete_sub_project_axios(el._id, el.project_id,toast)) }}>Delete</Button></Td>
+                <Td className={style.table_button}><Button onClick={() => { navigate(`/editpage/${el._id}`) }}>Edit</Button><Button onClick={() => { dispatch(Delete_sub_project_axios(el._id, el.project_id, toast)) }}>Delete</Button></Td>
               </Tr>
             })}
 

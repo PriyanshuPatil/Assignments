@@ -18,7 +18,7 @@ const Projects = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [single_project_data, setSingleProjectData] = useState([])
   const dispatch = useDispatch();
-  const toast=useToast()
+  const toast = useToast()
   useEffect(() => {
     let project_data_with_id = projectData.filter((el) => {
       if (el._id == id) { return el }
@@ -27,14 +27,14 @@ const Projects = () => {
     dispatch(Get_sub_project_axios(id))
   }, [])
 
-  if(loading){
-    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'}/></Box>
+  if (loading) {
+    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'} /></Box>
   }
   return (
     <Box className={style.project_parent}>
       <Box><SideMenu select_option={1} /></Box>
       <Box>
-        <DashBoard Heading={single_project_data.length==0?"":single_project_data[0].name} SubHeading="Upload" />
+        <DashBoard Heading={single_project_data.length == 0 ? "" : single_project_data[0].name} SubHeading="Upload" />
         <Box className={style.project_heading_parent}>
           <Box className={style.project_heading}>Upload</Box>
           <Box className={style.upload_type_parent}>
@@ -109,7 +109,7 @@ const Projects = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button onClick={() => { setActive(false); dispatch(Add_sub_project_axios({ name: Data.name, link: Data.link, project_id: Data.project_id },Data.project_id,toast)) }} backgroundColor={'black'} color={'white'}>Upload</Button>
+              <Button onClick={() => { setActive(false); dispatch(Add_sub_project_axios({ name: Data.name, link: Data.link, project_id: Data.project_id }, Data.project_id, toast)) }} backgroundColor={'black'} color={'white'}>Upload</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>}

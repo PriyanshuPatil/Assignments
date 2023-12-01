@@ -14,13 +14,13 @@ import axios from "axios";
 const Edit = () => {
   const [editActive, setEditActive] = useState(false);
   const { id } = useParams();
-  const toast=useToast()
+  const toast = useToast()
   const dispatch = useDispatch();
   const { subProjectData, single } = useSelector((store) => store.SubProject);
   const [edittext, setEdittext] = useState(single);
   useEffect(() => {
     axios
-      .get(`http://localhost:3400/podcast/${id}`)
+      .get(`https://enchanting-teal-llama.cyclic.cloud/podcast/${id}`)
       .then((res) => {
         setEdittext(res.data.link);
       })
@@ -50,7 +50,7 @@ const Edit = () => {
               <Button
                 onClick={() => {
                   setEditActive(!editActive);
-                  dispatch(Update_sub_project_axios(id, edittext,toast));
+                  dispatch(Update_sub_project_axios(id, edittext, toast));
                 }}
               >
                 Save & edit
