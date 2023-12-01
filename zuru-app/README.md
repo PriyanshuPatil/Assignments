@@ -1,4 +1,4 @@
-# PocastManeger
+# PodcastManeger
 PodcastManaeger is a plateform where creator can upload, create a new podcast and keep track of there all activity.
 
 <img src="https://i.postimg.cc/PJ4V9BGy/Screenshot-1121.png" alt="img1">
