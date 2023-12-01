@@ -14,19 +14,19 @@ const PhoneBook = () => {
   useEffect(() => {
     dispatch(get_Contact_Axios("hello"))
   }, [])
-const filter_func=(e)=>{
-  dispatch(get_Contact_Axios(e.target.value))
-}
+  const filter_func = (e) => {
+    dispatch(get_Contact_Axios(e.target.value))
+  }
   return (
     <Box className={style.PhoneBook_parent}>
       <Box className={style.PhoneBook_contact_parent}>
-        <Input placeholder='Search Contacts' onChange={(e)=>{filter_func(e)}} />
+        <Input placeholder='Search Contacts' onChange={(e) => { filter_func(e) }} />
         <Box className={style.PhoneBook_heading}>My Contacts:-{!edit_status && <Button onClick={() => { setchangeDetails(false); setEdit(true); }}>Create New Contact</Button>} </Box>
         <Box className={style.PhoneBook_contact_number_parent}>
           {contactData.map((el) => {
             return <Box className={style.PhoneBook_contact_number} onClick={() => { setchangeDetails(true); setEdit(false); set_new_contact_data(el) }}>
               <img src={el.image} />
-              <Box>{el.first_name}</Box><Box style={{color:"gray",fontSize:"15px"}}>{el.phone_number}</Box>
+              <Box>{el.first_name}</Box><Box style={{ color: "gray", fontSize: "15px" }}>{el.phone_number}</Box>
             </Box>
           })}
 
