@@ -109,14 +109,21 @@ export const update_Contact_Axios = (id, data,toast,setchangeDetails) => async (
 }
 };
 
-export const get_Contact_Axios = () => async (dispatch) => {
+export const get_Contact_Axios = (query) => async (dispatch) => {
   dispatch({ type: GET_CONTACT_LOADING });
   await axios
     .get(
       `http://localhost:3600/contact`
     )
     .then((res) => {
-      dispatch({ type: GET_CONTACT_SUCCESS, payload: res.data });
+      if(query!="hello"){
+      let filter_data= res.data.filter((el)=>{
+          if(el.first_name.includes(query)){return el}
+        })
+        dispatch({ type: GET_CONTACT_SUCCESS, payload: filter_data });
+      }else{
+        dispatch({ type: GET_CONTACT_SUCCESS, payload: res.data });
+      }
     })
     .catch((err) => {
       dispatch({ type: GET_CONTACT_ERROR });
