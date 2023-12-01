@@ -6,10 +6,10 @@ import {
   } from "redux";
   
   import thunk from "redux-thunk";
-import { authReducer } from "./authReducer/auth.reducer";
+import {contactReducer } from "./phonebookReducer/phonebookReducer.reducer";
   
   const rootReducer = combineReducers({
-    Auth: authReducer
+    Phone: contactReducer
   });
   
   const composer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

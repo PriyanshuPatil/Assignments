@@ -1,0 +1,26 @@
+.home_parent {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+.home_heading {
+  margin: auto;
+  margin-top: 15%;
+  gap: 30px;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  color: rgb(65, 65, 27);
+}
+
+.home_parent >button{
+ color: white;
+ background-color: black;
+}
+
+.home_parent >button:hover{
+    color: white;
+    background-color: rgb(68, 62, 62);
+ }
