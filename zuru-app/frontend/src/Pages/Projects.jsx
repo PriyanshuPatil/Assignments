@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import SideMenu from '../Components/SideMenu'
 import style from './css/project.module.css'
-import { Box, Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from '@chakra-ui/react'
+import { Box, Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spinner, useDisclosure, useToast } from '@chakra-ui/react'
 import DashBoard from '../Components/DashBoard'
 import TableData from '../Components/TableData'
 import { useParams } from 'react-router-dom'
@@ -26,6 +26,10 @@ const Projects = () => {
     setSingleProjectData(project_data_with_id);
     dispatch(Get_sub_project_axios(id))
   }, [])
+
+  if(loading){
+    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'}/></Box>
+  }
   return (
     <Box className={style.project_parent}>
       <Box><SideMenu select_option={1} /></Box>

@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import style from "./css/profile.module.css";
 import SideMenu from "../Components/SideMenu";
-import { Box, Button, Heading, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Input, Spinner, Text } from "@chakra-ui/react";
 import DashBoard from "../Components/DashBoard";
 import { useSelector } from "react-redux";
 const Profile = () => {
   const { loading, userData } = useSelector((store) => store.Auth);
   const [userdata, setUserData] = useState({
-    name: userData.name,
-    email: userData.email,
+    name: userData.name || "xyz",
+    email: userData.email || "xyz@gmail.com",
   });
+  if(loading){
+    return <Box><Spinner size='lg' mt={'30%'} ml={'40%'}/></Box>
+  }
   return (
     <Box className={style.profile_parent}>
       <Box>
@@ -35,7 +38,7 @@ const Profile = () => {
                 size="sm"
                 value={userdata.name}
                 onChange={(e) => {
-                  setUserData({ ...userdata, name: e.target.value });
+                  setUserData({ ...userData, name: e.target.value });
                 }}
               />
             </Box>
@@ -49,7 +52,7 @@ const Profile = () => {
                 size="sm"
                 value={userdata.email}
                 onChange={(e) => {
-                  setUserData({ ...userdata, email: e.target.value });
+                  setUserData({ ...userData, email: e.target.value });
                 }}
               />
             </Box>

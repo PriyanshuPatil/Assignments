@@ -7,7 +7,7 @@
 }
 .project_heading {
   color: rgb(79, 79, 221);
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
 }
 .upload_type_parent {
@@ -36,7 +36,8 @@
   margin-top: 10px;
 }
 .upload_image {
-  width: 70%;
+  width: 1060px;
+  height: 280px;
   margin: auto;
   margin-top: -3%;
 }

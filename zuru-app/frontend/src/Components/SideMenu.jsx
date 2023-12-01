@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import style from './css/SideMenu.module.css'
 import { Box, useToast } from '@chakra-ui/react'
 import { IoSettingsOutline } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 const SideMenu = ({ select_option = 0 }) => {
    const [active_number, set_active_number] = useState(select_option);
    const navigate = useNavigate();
+   const { id } = useParams();
    const toast=useToast()
    return (
       <Box className={style.sidemenu_parent}>
@@ -21,7 +22,7 @@ const SideMenu = ({ select_option = 0 }) => {
                   <Box className={active_number != 1 ? style.sidemenu_counting : style.sidemenu_counting2}>1</Box>
                   Projects
                </Box>
-               <Box className={active_number != 2 ? style.sidemenu_listitem : style.sidemenu_listitem2} onClick={() => { set_active_number(2);navigate("/configur") }}>
+               <Box className={active_number != 2 ? style.sidemenu_listitem : style.sidemenu_listitem2} onClick={() => { set_active_number(2);navigate(`/configur/${id}`) }}>
                   <Box className={active_number != 2 ? style.sidemenu_counting : style.sidemenu_counting2}>2</Box>
                   Widget Configurations
                </Box>

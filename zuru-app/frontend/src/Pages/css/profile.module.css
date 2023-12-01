@@ -7,7 +7,7 @@
 }
 .profile_heading {
   color: rgb(79, 79, 221);
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 700;
 }
 .profile_content {
@@ -16,9 +16,20 @@
   margin-top: 30px;
   gap: 20px;
 }
+.profile_content>div:nth-child(1)>img {
+width: 50%;
+}
+.profile_content>div:nth-child(2) {
+  margin-left: -50%;
+  margin-top: 0%;
+  }
+  .profile_content>div:nth-child(3) {
+    margin-left: -50%;
+    margin-top: 0%;
+    }
 .profile_content > div > img {
   width: 60%;
-  margin-top: -20%;
+  margin-top: -30%;
 }
 .profile_content > div {
   width: 90%;

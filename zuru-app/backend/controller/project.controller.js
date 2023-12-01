@@ -34,6 +34,20 @@ const getSingleProject = async (req, res) => {
   }
 };
 
+const updateProject = async (req, res) => {
+  const id = req.params.id;
+  const link = req.query.link;
+  try {
+    const Project_Data = await projectModel.findByIdAndUpdate({_id:id},{image_url:link});
+    if (Project_Data) {
+      res.send(Project_Data);
+    } else {
+      res.send({ msg: "Project is Not Present" });
+    }
+  } catch (err) {
+    res.status(400).send({ msg: err.message });
+  }
+};
 
 const addProject = async (req, res) => {
   try {
@@ -57,5 +71,5 @@ const deleteProject = async (req, res) => {
 
 
 module.exports = {
-  getProject,getSingleProject,addProject,deleteProject
+  getProject,getSingleProject,addProject,deleteProject,updateProject
 };
