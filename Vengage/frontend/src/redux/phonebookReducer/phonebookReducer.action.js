@@ -80,7 +80,7 @@ export const delete_Contact_Axios =
   (id, toast, setchangeDetails) => async (dispatch) => {
     dispatch({ type: DELETE_CONTACT_LOADING });
     try {
-      await axios.delete(`https://enchanting-teal-llama.cyclic.cloud/${id}`);
+      await axios.delete(`https://enchanting-teal-llama.cyclic.cloud/contact/${id}`);
       dispatch({ type: DELETE_CONTACT_SUCCESS, payload: id });
       toast({
         title: "Success",
@@ -111,7 +111,7 @@ export const update_Contact_Axios =
       dispatch({ type: UPDATE_CONTACT_LOADING });
       try {
         await axios.patch(
-          `https://enchanting-teal-llama.cyclic.cloud/${id}`,
+          `https://enchanting-teal-llama.cyclic.cloud/contact/${id}`,
           data
         );
         dispatch({
