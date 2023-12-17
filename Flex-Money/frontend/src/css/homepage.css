@@ -1,0 +1,6 @@
+.home_parent {
+  width: 100%;
+}
+.home_parent > img {
+  width: 100%;
+}
