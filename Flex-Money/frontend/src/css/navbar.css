@@ -14,10 +14,13 @@
 }
 .menu_image {
   width: 120px;
+  border-radius: 100%;
 }
 .menu_image > img {
-  width: 100%;
-  height: 100px;
+  width: 80%;
+  height: 75px;
+  border-radius: 100%;
+  padding: 10px;
 }
 .menu_item {
   display: grid;
