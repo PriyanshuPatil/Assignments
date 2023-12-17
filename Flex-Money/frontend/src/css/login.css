@@ -1,0 +1,9 @@
+.login_parent {
+  position: sticky;
+  height: 750px;
+  opacity: 95%;
+}
+.nav_block_area {
+  height: 80px;
+  position: inherit;
+}

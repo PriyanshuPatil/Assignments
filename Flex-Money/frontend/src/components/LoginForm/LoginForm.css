@@ -1,0 +1,49 @@
+.login_form_div {
+  height: 700px;
+  opacity: 100%;
+  padding-top: 10px;
+}
+.login_form_parent {
+  background-color: white;
+  border-radius: 5%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  width: 35%;
+  padding: 20px;
+  margin: auto;
+  margin-top: 3%;
+  display: grid;
+  gap: 20px;
+}
+.login_form_heading {
+  background-color: gray;
+  padding: 20px 10px;
+  border-radius: 50%;
+  color: white;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500px;
+}
+.login_form_parent > input {
+  padding: 10px;
+}
+.login_form_parent > button {
+  padding: 10px;
+}
+
+@media (min-width: 200px) and (max-width: 700px) {
+  .login_form_parent {
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    width: 65%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    gap: 20px;
+  }
+}

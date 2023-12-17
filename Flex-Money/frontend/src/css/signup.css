@@ -1,0 +1,9 @@
+.signup_parent {
+  position: sticky;
+  height: 750px;
+  opacity: 85%;
+}
+.nav_block_area {
+  height: 80px;
+  position: inherit;
+}

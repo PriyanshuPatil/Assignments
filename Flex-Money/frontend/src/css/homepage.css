@@ -4,3 +4,12 @@
 .home_parent > img {
   width: 100%;
 }
+
+@media (min-width: 200px) and (max-width: 500px) {
+  .home_parent {
+    height: 720px;
+  }
+  .home_parent > img {
+    height: 100%;
+  }
+}
